@@ -1,0 +1,102 @@
+{% extends "onboarding/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <div class="container">
+        <div class="group">
+            <h1>Getting Started</h1>
+            <p>Welcome to Mixpanel Support! Here is what we'll cover:</p>
+            <ul>
+                <li><a class="started-nav" href="#howto">How to Use This Guide</a></li>
+                <li><a class="started-nav" href="#expectations">Onboarding Structure and General Expectations</a></li>
+                <li><a class="started-nav" href="#setup">Setting Up Your Laptop</a></li>
+                <li><a class="started-nav" href="#implementation">How Mixpanel was Implemented for this Guide</a></li>
+            </ul>
+        </div>
+        <div class="group" id="howto">
+            <h2>How To Use This Guide</h2>
+            <p>So glad you were able to find this guide. This guide was built by a new Support Engineer who wanted a better way to onboard (and wanted to also practice her Django and Javascript). This guide's aim is to help keep you on track and stay organized for each day and each week.</p>
+            <p>In the <a href="/onboarding">Onboarding Guide</a>, on the left you have your personalized training calendar by day, and on the right you have your weekly milestones and objectives to keep you focused. Your calendar shows you your current day. The fast backward button takes you back a week, fast forward takes you forward a week, left arrow takes you back a day, and the right arrow takes you forwards a day. "Start" takes you back to your start date and "Today" takes you back to today. Each training has a start time, a title (and a link to further resources), and the location of the training.</p>
+            <p>On the righthand side will show your projects and general guidelines for what to accomplish and where you should be for each given week. We highly encourage you to keep in touch with the milestones so you can be all ramped up!</p>
+            <p>Keep in mind that you may not feel ready after 4 weeks of official training! Don't worry, this is normal. Be sure to ask as many questions as you can so that eventually it'll all feel natural :)</p>
+            <p>If you want to add anything to this guide for all to see, feel free to make a PR or ask your mentor on how to do so. This should serve as a living and breathing document for all new support engineers to feel comfortable with the material, and as a guide for any questions you may have.</p>
+            <p>If you have any questions or feedback for this guide, do not hesitate to contact Tiffany!</p>
+        </div>
+        <div class="group" id="expectations">
+            <h2>Onboarding Structure and General Expectations</h2>
+            <p>Your first 4 weeks will be filled with</p>
+            <ul>
+                <li>Training sessions to learn from</li>
+                <li>Onboarding projects to complete (including the implementation of Mixpanel!)</li>
+                <li>Milestones to hit</li>
+                <li>Tickets to crush</li>
+                <li>Check-ins to be had with your mentor (daily for the first 3 weeks)</li>
+                <li>A LOT of people to meet</li>
+            </ul>
+            <p>When you’re not scheduled for any meetings, trainings, or meet-ups you should spend your free time on</p>
+            <ul>
+                <li>Reviewing notes and reading up on resources (feel free to reach out to ask your trainers and mentor questions, or if they’re unavailable, anybody on the team!)</li>
+                <li>Tickets.  You will start off with practice tickets, and transition over to real tickets in Week 3 </li>
+                <li>Projects due for the week</li>
+                <li>Milestones to hit by end of the week </li>
+            </ul>
+            <p>What are some example projects you will be working on?</p>
+            <ul>
+                <li>Building your own Music Finder with Mixpanel on it!</li>
+                <li>Becoming well-versed enough in Mixpanel so that you may host our weekly webinar and demo Mixpanel to users!</li>
+                <li>Build out an Implementation Spec and populating a demo Mixpanel project with dummy data based off this Implementation Spec</li>
+            </ul>
+        </div>
+        <div class="group" id="setup">
+            <h2>Setting Up Your Laptop and Mixpanel Account</h2>
+            <p>Install, make sure you have access to, or set up an account with your Mixpanel email address to all of the following:</p>
+            <ul>
+                <li><a href="https://workforcenow.adp.com/public/index.htm">ADP</a>: Our time card software. Log time and view payroll</li>
+                <li><a href="https://mixpanel.okta.com/home/asana/0oamgpsp7lAJSxzCl0x6/2577?fromHome=true">Asana</a>: Project management software we use primarily to log bugs</li>
+                <li><a href="https://mixpanel.bamboohr.com/home/">BambooHR</a>: Portal in which you can log PTO, view files and employees</li>
+                <li><a href="https://chrome.google.com/webstore/detail/encoder-decoder/mjcdbmdlmjbjmpenpepgcpnmapclkaah">Base64 Encoding</a>: Encode and decode base64, the way we use to send Mixpanel objects to our servers (recommended)</li>
+                <li><a href="https://mixpanel.okta.com/home/bookmark/0oa88ywugcXxEc1XB0x7/2557?fromHome=true">Bswift</a>: Benefits portal. You'll get an email about this in later weeks</li>
+                <li><a href="https://mixpanel.okta.com/home/boxnet/0oa13c3ugo6Enmh0q0x7/72?fromHome=true">Box</a>: One of our file sharing software</li>
+                <li><a href="https://calendly.com/dashboard">Calendly</a>: Schedule meetings with customers (recommended)</li>
+                <li><a href="https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&gclid=Cj0KEQiAguXBBRCE_pbQ5reuq8MBEiQANji2LTrJx6jV3M2i8DVoyBcw-IGp6TZjLsdn38wTYImFeAYaAswh8P8HAQ">Chrome</a>: Our favorite browser</li>
+                <li><a href="https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd">Chromecast</a>: Send content to your Chromecast (usually used when we want to share our screens in meetings)</li>
+                <li>Custom Search Engine: Search specific sites instead of using Google. Examples are searching through mixpanel.com/admin/internal for internal users, and mixpanel.com/help/questions for common questions. Start <a href="https://cse.google.com/cse/">here</a></li>
+                <li><a href="https://mixpanel.okta.com/home/dropbox/0oamgctrm6BvEw3v80x6/240?fromHome=true">Dropbox</a>: Another file sharing software</li>
+                <li><a href="https://mixpanel.okta.com/home/expensifysaml/0oaoxzs45msK4dlJq0x6/46405?fromHome=true">Expensify</a>: Request Mixpanel to fund your spending! (The way you are expensed that lovely $300 desk budget)</li>
+                <li><a href="https://chrome.google.com/webstore/detail/ghostery/mlomiejdfkolichcflejclcbmpeaniij">Ghostery</a>: View who's tracking your web browsing</li>
+                <li><a href="https://github.com">Github</a>: Ask Justin Talbot for access to our Github! Make sure you set up two-factor authentication and clone projects via SSH. It's up to you whether to use your current or set up a new account</a></li>
+                <li><a href="https://mixpanel.okta.com/home/google/0oakqw2zx3MhidaAJ0x6/54?fromHome=true">Google Calendar</a>: See schedules and schedule meetings</li>
+                <li><a href="https://mixpanel.okta.com/home/google/0oakqw2zx3MhidaAJ0x6/52?fromHome=true">Google Drive</a>: Another file sharing software</li>
+                <li><a href="https://mixpanel.okta.com/home/bookmark/0oarhkid46CZTJA2x0x6/2557?fromHome=true">Google Hangouts</a>: Hosting online meetings</li>
+                <li><a href="https://mixpanel.okta.com/home/google/0oakqw2zx3MhidaAJ0x6/50?fromHome=true">Google Mail</a>: Email people</li>
+                <li><a href="https://mixpanel.okta.com/home/mixpanel_golinks_1/0oa39x0v84b9qiWiV0x7/73535?fromHome=true">Golinks</a>: Quick shortcut to a link</li>
+                <li><a href="https://mixpanel.okta.com/home/greenhouse/0oaoy6fq6wLdQZuXC0x6/12789?fromHome=true">Greenhouse</a>: Refer your favorite people to an external position at Mixpanel!</li>
+                <li><a href="https://mixpanel.okta.com/home/bookmark/0oa4qwykmmTmiy6680x7/2557?fromHome=true">JIRA</a>: Project management software used primarily by developers to log tasks and bugs</li>
+                <li><a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">JSON Formatter</a>: Format JSON on the spot in the browser (recommended)</li>
+                <li>Microsoft 365: Email help@one82.com or call 408-335-0353 to contact One82 to obtain your Microsoft Office key and set up MS Office</li>
+                <li><a href="https://www.mixpanel.com">Mixpanel</a>: Our product. Go make an account with your internal email!</li>
+                <li>Navia: Commuter benefits. Don't sign up until you receive an email!</li>
+                <li><a href="https://chrome.google.com/webstore/detail/office-editing-for-docs-s/gbkeegbaiigmenfmjfclcdgdpimamgkj">Office Editing for Docs, Sheets & Slides</a>: View and edit Microsoft Word, Excel, and Powerpoint with Google Docs, Sheets, and Slides</li>
+                <li><a href="https://mixpanel.okta.com/app/UserHome">Okta</a>: Our portal for all of our apps</li>
+                <li><a href="https://www.salesforce.com">Salesforce</a>: Our customer support system. Email or Slack Anthony Yoo (first_name.last_name@mixpanel) to be added</li>
+                <li><a href="https://itunes.apple.com/us/app/skitch-snap.-mark-up.-share./id425955336?mt=12">Skitch</a>: Send screenshots and edit it them (recommended)</li>
+                <li><a href="https://mixpanel.okta.com/home/bookmark/0oaouqmj07sN2ZWMZ0x6/2557?fromHome=true">Slack</a>: Set this up after you've set up Okta. Our primary communication platform</li>
+                <li><a href="http://sublimetext.com/2">Sublime text 2</a>: Our favorite text editor. We use it this when we make Music Finder</li>
+                <li>Sublime text plugins: Do more with Sublime. First, install the <a href="https://packagecontrol.io/">Package Manager</a> and restart Sublime. Then, from Preferences > Package Control > Install Package, install GitGutter and SublimeLinter. Other ones <a href="http://www.hongkiat.com/blog/sublime-text-plugins/">here</a> (recommended)</li>
+                <li><a href="https://chrome.google.com/webstore/detail/utime/kpcibgnngaaabebmcabmkocdokepdaki">UNIX timestamp converter</a>: Convert milliseconds to a human-readable date and vice versa (recommended)</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        trackPageView('Getting Started');
+    </script>
+{% endblock %}
+
+{% block bottom %}
+    {{ block.super }}
+{% endblock %}

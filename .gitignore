@@ -2,3 +2,6 @@ venv
 *.pyc
 staticfiles
 .env
+# Client secret, fix later
+client_secret.json
+sftp-config.json

@@ -1,0 +1,31 @@
+{% extends "onboarding/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <div class="group" style="margin: 50px">
+        <h1>Mixpanel Support</h1>
+        <p>Here are some names and faces to help you learn those around you quicker! :)</p>
+        <div class="pics">
+            <h2 id="your-team"></h2>
+            <div id="your-team-pics"></div>
+
+            <h2>Support</h2>
+            <div id="support-pics"></div>
+
+            <p>For all of Mixpanel and full titles, check out <a href="https://mixpanel.bamboohr.com/dashboard/">Bamboo HR</a></p>
+        </div>
+    </div>
+
+    <script>
+        trackPageView('Team');
+    </script>
+    {% endblock %}
+
+{% block bottom %}
+    {{ block.super }}
+{% endblock %}

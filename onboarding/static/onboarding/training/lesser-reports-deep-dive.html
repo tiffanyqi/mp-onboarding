@@ -1,0 +1,60 @@
+<h1>Deep Dive into Lesser Used Reports</h1>
+
+<h2>Formulas</h2>
+<p>Formulas allow you to stay out of excel and do arithmetic. This is useful for quickly calculating ratios and KPIs and seeing how those rates change over time</p>
+<ul>
+    <li>Allows you to perform arithmetical operations on any Mixpanel event or a subset of those events (Segmented by a property)</li>
+    <li>Allows you to stay out of excel and complete operations directly within the webapp</li>
+    <li>Great for calculating ratios, KPIS (Useful for quickly calculating rates and seeing how those rates change over time)</li>
+    <li>Similar to Segmentation, but not quite the same</li>
+    <li>How is this calculated?</li>
+    <ul>
+        <li>High level - select 2 events and an operation (app frequency)</li>
+        <li>Based on formulas API </li>
+        <li>Pass on parameters to endpoint and it passes you back the value</li>
+    </ul>
+    <li>Limitations:</li>
+    <ul>
+        <li>Calculations based on event counts, no way to perform calculation on value of an event’s properties</li>
+        <li>Ability to compare different formulas, limited at 2 formulas- bookmark several different formula reports </li>
+    </ul>
+    <li>2% of users use this report - so users don’t have to export and use excel to do conversions</li>
+</ul>
+
+<h2>Insights</h2>
+<p>Insight is to people what segmentation is to events - gives you snapshot of all people properties allowing you to run distributions across all of your users and gauge things like average revenue or churn</p>
+<ul>
+    <li>Plotting out frequency of people properties across profiles</li>
+    <ul>
+        <li>If you delete people profiles, their data will not exist in people, but it will still exist in events</li>
+        <li>Dates on Insights - just for property data, not for the time the event happened</li>
+    </ul>
+    <li>Insight is to people what segmentation is to events</li>
+    <ul>
+        <li>Gives you snapshot of all people properties, allowing you to run distributions across all of your users and gauge things like average revenue or churn</li>
+        <li>You select x and y axes and how you want to visualize data </li>
+    </ul>
+    <li>Insight gives you a snapshot of all the people properties in every people profile at this current point in time</li>
+    <li>Good report: Venmo’s number of friends by transactions report, also revenue by age</li>
+    <li>General advice with insights is, it’s better to have a question first</li>
+    <li>It’s hard to come up with a graph that means something, but if it’s a relationship between two people properties - insights can do that</li>
+    <li>Technically an alpha product</li>
+    <li>Limitations:</li>
+    <ul>
+        <li>Can only look at snapshot of all your people profiles</li>
+        <li>There isn’t a way to see how properties change over time </li>
+        <li>Y-axis in insight report is limited to top 6 values for strings</li>
+        <li>The limit goes up to top 14 values in  the property is an integer</li>
+        <li>What about list properties or booleans? (Hint: No bueno)</li>
+        <li>If you’re plotting a number, it cannot have less than 12 buckets (E.g. If you had an app that was from 0 to 6 year olds, there would be half buckets)</li>
+        <li>That can have really weird consequences if you have purchases with 99 cents</li>
+        <li>Last bucket is 95th percentile (Looks way bigger)</li>
+    </ul>
+</ul>
+
+<h2>Reference Material</h2>
+<ul>
+    <li><a href="https://mixpanel.com/blog/2014/12/06/on-mixpanel-s-insight-report">Insights Report</a></li>
+    <li><a href="https://mixpanel.com/blog/2015/01/16/formulas-calculating-with-numeric-values">Calculating with Numeric Values</a></li>
+    <li><a href="https://mixpanel.com/blog/2014/12/16/community-tip-formulas-with-business-impact">Using Formulas for Business Impact</a></li>
+</ul>

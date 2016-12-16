@@ -1,0 +1,179 @@
+{% extends "onboarding/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <div class="container">
+        <div class="group">
+            <h1>Reference Guide</h1>
+            <p>Here's a collection of all the links you've received across all your trainings, in addition to other helpful links about Mixpanel.</p> 
+        </div>
+        <div class="group">
+            <h2>Mixpanel Structure</h2>
+            <ul>
+                <li><a href="https://www.dropbox.com/s/d0ze5h8omczkxnj/Mixpanel%20Logical%20Application%20Topology.pdf?dl=0">How is data “sent”?</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Mixpanel Implementation</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/blog/2012/11/15/aarrr-mixpanel-for-pirates/">AARRR Framework Mixpanel Blogpost</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/09/03/community-tip-getting-started-with-mixpanel">Getting Started with Mixpanel</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/05/06/community-tip-javascript-implementation-roundup">Javascript Implementation Round-up</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Segmentation & Data Types</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/help/questions/articles/what-does-an-undefined-property-mean">What does an undefined property mean</a></li>
+                <li><a href="https://mixpanel.com/help/questions/articles/how-does-mixpanel-treat-numbers">How does Mixpanel treat numbers</a></li>
+                <li><a href="https://mixpanel.com/docs/properties-or-segments/property-data-types">Property data types</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/05/15/community-tip-use-property-types-to-turbocharge-reports">Use property types to Turbocharge reports</a></li>
+                <li><a href="https://mixpanel.com/blog/2014/07/14/typecasting-date-properties">Typecasting Date Properties</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/03/02/community-tip-list-properties">List Properties</a></li>
+            </ul>            
+        </div>
+        <div class="group">
+            <h2>Funnels</h2>
+            <ul>
+                <li><a href="https://drive.google.com/open?id=0Bxe_O_VM10dCWVNqV01McTdlc3M">Video on Funnels</a></li>
+                <li><a href="https://mixpanel.com/help/questions/articles/how-are-funnels-calculated">How are Funnels calculated?</a></li>
+                <li><a href="https://mixpanel.com/blog/2014/10/14/introducing-custom-funnel-windows">Introducing Custom Funnel Windows</a></li>
+                <li><a href="https://mixpanel.com/blog/2014/10/10/funnels-best-practices">Funnels Best Practices</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Retention</h2>
+            <ul>
+                <li><a href="https://drive.google.com/open?id=0Bxe_O_VM10dCaWh5M2VpVkFKVzg">Video on Retention</a></li>
+                <li><a href="https://mixpanel.com/help/questions/articles/how-is-retention-calculated">How is Retention calculated?</a></li>
+                <li><a href="https://mixpanel.com/blog/2014/12/11/retention-compare-segments-and-see-who-is-addicted">Retention: Compare segments and see who is addicted</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/02/23/community-tip-addiction-best-practices">Addiction Best Practices</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>A/B Testing</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/help/reference/android#ab_testing">AB Testing in Android</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>People</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/blog/2015/03/30/community-tip-people-properties-best-practices">People Properties Best Practices</a></li>
+                <li><a href="https://mixpanel.com/blog/2014/07/21/revenue-best-practices">Revenue Best Practices</a></li>
+                <li><a href="https://mixpanel.com/help/reference/javascript-full-api-reference#mixpanel.people.set">Mixpanel People API Reference</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Notifications</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/blog/2014/04/09/notification-analytics">Notifications Analytics</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/07/13/aarrr-for-people-using-mixpanel-notifications-to-grow-your-business">AARRR for Mixpanel Notifications</a></li>
+                <li><a href="https://mixpanel.com/help/questions/articles/why-are-users-not-sent-my-notification">Why are users not send my notification?</a></li>
+                <li><a href="https://mixpanel.com/help/questions/articles/why-arent-my-push-notifications-sending">Why aren't my push notifications sending?</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Lesser Used Reports</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/blog/2014/12/06/on-mixpanel-s-insight-report">Insights Report</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/01/16/formulas-calculating-with-numeric-values">Calculating with Numeric Values</a></li>
+                <li><a href="https://mixpanel.com/blog/2014/12/16/community-tip-formulas-with-business-impact">Using Formulas for Business Impact</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Identity Management</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/help/questions/articles/what-is-distinctid">What is distinct_id?</a></li>
+                <li><a href="https://mixpanel.com/help/questions/articles/how-do-i-use-alias-and-identify">How do I use alias and identify?</a></li>
+                <li><a href="https://aa955481-a-41a94c57-s-sites.googlegroups.com/a/mixpanel.com/mixpanel-operations-wiki/home/teams/support/support-knowledge-share/identity-management-alias-101/Identity%20Management%20%281%29.pdf?attachauth=ANoY7crwdCd7BN55yZ7i768ZmlpaKIdD-9QocxKvSGePhxMvWJMuOTJyYghtOUC1eo0x-ivRj_YPU1YL0N5-DBnjybw_NmzwLonkFeSuyCsecj_Ip2ygRes7jZwXy1TnVBY5VNxKeQmTIuao9RLxVlUCBc2EEtu3P6Yt3k3acgYJ_ZCgjHy3pDGpDYjFM0mu_rwkojDfCBZO5gI5e7whfEvjBbI-IIK6JBjfGE8DIpwcL_UryE-NEfcGJPOeVTZ2nTcUzyU0A-pXa7_ym0YWXfPKqKLHpnm6Vsswy1Puyn25vy__svj7hGg6tq-wL5xJkbLpDsYSP0lk_eYXH_ihXHPRRp7oQZ5mZ2CNAtJFoZ0LfhZ-3woRskA%3D&attredirects=1">Identity Management Visual Guide</a></li>
+                <li><a href="https://mixpanel.com/help/questions/articles/how-should-i-handle-my-user-identity-with-the-mixpanel-javascript-library">How should I handle my user identity with the Mixpanel Javascript Library?</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/09/21/community-tip-maintaining-user-identity">Maintaining User Identity</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Super Properties</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/docs/properties-or-segments/how-do-i-set-a-property-every-time">How do I set a property every time?</a></li>
+                <li><a href="https://mixpanel.com/help/questions/articles/what-properties-do-mixpanels-libraries-store-by-default">What properties do Mixpanel's libraries store by default?</a></li>
+                <li><a href="https://blog.mixpanel.com/2015/03/16/community-tip-useful-super-properties/">Useful Super Properties</a></li>
+                <li><a href="https://mixpanel.com/help/questions/articles/where-are-super-properties-stored">Where are Super Properties Stored?</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/01/29/incremental-super-properties">Incremental Super Properties</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>API Endpoints</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/docs/api-documentation/data-export-api">Export API</a></li>
+                <li><a href="http://mixpanel.com/api/2.0">Processed API</a></li>
+                <li><a href="https://data.mixpanel.com/api/2.0/export/">Raw API</a></li>
+                <li><a href="https://mixpanel.com/help/reference/exporting-raw-data">Exporting Raw Data</a></li>
+                <li><a href="https://mixpanel.com/docs/api-documentation/data-export-api">Data Export API</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Platform</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/help/platform">Reference</a></li>
+                <li><a href="https://mixpanel.com/report/566513/mpplatform/7751">Flows Report</a></li>
+                <li><a href="https://mixpanel.com/report/566513/mpplatform/11285/#preview">K-Factor</a></li>
+                <li><a href="https://mixpanel.com/report/566513/mpplatform/13233">Dashboard</a></li>
+                <li><a href="https://mixpanel.com/help/platform#developing-locally">Developing Locally</a></li>
+            </ul>
+        </div>
+
+        <div class="group">
+            <h2>Acronyms</h2>
+            <ul>
+                <li>AARRR: Acquisition, Activation, Retention, Referral, Revenue</li>
+                <li>API: Application Programming Interface, the way other companies can extract their data from Mixpanel</li>
+                <li>ARB: Mixpanel's database.</li>
+                <li>IKB: Internal Knowledge Base (on Salesforce)</li>
+                <li>IRB: Interactive Report Builder (different from the Ruby launcher on terminal)</li>
+                <li>JQL: Javascript Query Language</li>
+                <li>JQuery: Cross-platform Javascript library designed to simplify the client-side scripting of HTML</li>
+                <li>KB: Knowledge Base</li>
+                <li>SDK: Software Development Kit, the way for companies to start integrating Mixpanel in mobile</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Webinar</h2>
+            <ul>
+                <li><a href="https://mixpanel.com/help/questions/articles/webinar-resource-page">Signing up for the Webinar</a></li>
+                <li><a href="https://docs.google.com/document/d/1f_C0Cb33dlJTZedvJY_37c5ahexFzliutxWCqTUbemU/edit?ts=58210d81">Day of Checklist</a></li>
+                <li><a href="https://docs.google.com/document/d/1mROnklh4HWZSNHT4CNqY1vNJpsQtR-BrIim0SMkaQJk/edit">Webinar Script</a></li>
+                <li><a href="https://www.icloud.com/keynote/0-fIcyk9VFJVfy3iifP9vRiUg#Intro_Webinar">Slides</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Miscellaneous</h2>
+            <ul>
+                <li><a href="http://community.mixpanel.com/">Mixpanel Community Posts</a></li>
+                <li><a href="https://mixpanel.com/learn">Mixpanel University</a></li>
+                <li><a href="https://status.mixpanel.com/">Is Mixpanel down?</a></li>
+                <li><a href="https://mixpanel.com/blog/2015/06/22/community-tip-session-length-tracking">Session Length Tracking</a></li>
+                <li><a href="https://mixpanel.com/blog/2014/10/27/measure-how-long-things-take-within-your-ios-app">Measure how long things take within your iOS app</a></li>
+                <li><a href="https://docs.google.com/a/mixpanel.com/document/d/15BIVRKVNOUTDMgv1Rkq34DoGHlY6RIP0ipbjcaGmZCA/edit?usp=sharing">Dungeon Master Directions</a></li>
+                <li><a href="https://mixpanel.com/blog/2014/09/08/everything-about-server-side-updates">Everything about Server-side updates</a></li>
+                <li><a href="https://docs.google.com/document/d/18tqrrGc7EXXD6vQi-UQD8I63T38ulAWAssVcK-zHfDU/edit">Guide on writing scripts and working with the terminal</a></li>
+                <li><a href="https://app.asana.com/0/967836161353/37492252661638">Sample bug report</a></li>
+                <li><a href="https://docs.google.com/presentation/d/1st9GU3cqHmQ0RLoqM5kz9RVpGqTvKd_a4uWIb6o02cs/edit?ts=583f4751">Slack Presentation</a></li>
+                <li><a href="https://docs.google.com/presentation/d/1zi8A11uBC9S0TjO-mQovbEl1XBQGBNtsus1LNNJ4ZKQ/edit#slide=id.p4">Autotrack Presentation</a></li>
+                <li><a href="https://www.evernote.com/l/AfJHIp5wY91HKqE0a0Ry68MFu8uRe1OQQ94">Keyboard Shortcuts</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/16hwnpBb8Ju-6Wbm6MKWZhGiNHLYhW_GaDyMLZgj82Ss/edit#gid=0">Other Links to be populated (Karima's Links)</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        trackPageView('Reference');
+    </script>
+{% endblock %}
+
+{% block bottom %}
+    {{ block.super }}
+{% endblock %}

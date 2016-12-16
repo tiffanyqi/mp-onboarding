@@ -1,0 +1,133 @@
+<h1>Debugging Techniques</h1>
+<p>To access:</p>
+<ul>
+    <li>Console: Cmd+Option+J</li>
+    <li>Source Code: Cmd+Option+U</li>
+</ul>
+
+<h2>Analyzing XHR requests</h2>
+<ul>
+    <li>Start by opening any Mixpanel report</li>
+    <ul>
+        <li>View developer console to find requests going out (for many browsers and operating systems <a href="https://www.evernote.com/l/AfJHIp5wY91HKqE0a0Ry68MFu8uRe1OQQ94">here</a> are the keyboard shortcuts)</li>
+        <li>Want to be under “Network” tab and then “XHR” suboption in Chrome</li>
+    </ul>
+    <li>mp_page_view request</li>
+    <ul>
+        <li>Why is it here? Initialization monitor and a relic of the past</li>
+        <ul>
+            <li>If you don’t have mg_page_view, you will see “mixpanel” is undefined</li>
+            <li>This means the page is trying to do something with mixpanel but mixpanel is not loaded correctly, or it’s loading after they make a call to mixpanel</li>
+        </ul>
+    </ul>
+    <li>What are all these other requests?</li>
+    <ul>
+        <li>Mixpanel tracking you :)</li>
+        <li>Go through base64 decode to see what update is being sent</li>
+        <li>This is how you would do the same on a live site to confirm a user’s code is executing properly</li>
+    </ul>
+    <li>Some of them are loading other report elements</li>
+    <ul>
+        <li>Every element in Mixpanel  -- events and props dropdowns, etc. -- is generated through API requests</li>
+        <li><a href="https://mixpanel.com/docs/api-documentation/data-export-api">Processed API</a> houses many of these endpoints</li>
+    </ul>
+</ul>
+
+<h2>Sending data through HTTP API (Review)</h2>
+<ul>
+    <li>Just like Mixpanel tracking you in XHR, you can make your own HTTP API requests to Mixpanel</li>
+    <ul>
+        <li>This is what each Mixpanel library does -- converts the code from a call in whatever library to a straight HTTP request to the Mixpanel API</li>
+        <li>Refresh: How to take a JSON array then base64 encode it to send the data to Mixpanel</li>
+    </ul>
+    <li>/track versus /import friendly reminder</li>
+    <ul>
+        <li><5 days versus >5 days</li>
+        <li>don’t want someone to import a ton of events and slow down everyone else’s live feed</li>
+    </ul>
+    <li>Idea of batching requests</li>
+    <ul>
+        <li>Instead of sending tons of requests, you collect them and send in groups</li>
+        <li>The error logging is worse but the send process is much improved - if I have 50 events in a batch, it’s going to give a single generic error</li>
+        <li>If you do it one by one, it will show you which exact request is giving you issues</li>
+    </ul>
+    <li>Size limitation of 50 requests per batch</li>
+    <ul>
+        <li>Best for mobile, because it doesn’t drain a ton of battery, or up people’s data charges on their phones</li>
+        <li>Not clogging up processes on server</li>
+    </ul>
+</ul>
+
+<h2>Debugging</h2>
+<ul>
+    <li>Debugging XHR requests in general</li>
+    <ul>
+        <li>Tips and tricks for looking at the right requests -- searching terms, looking for certain endpoints, etc. (If you’re looking for an event sending, look for /track endpoint)</li>
+        <li>Are we getting back or sending the data we think we are? (Search your distinct ID and just track yourself)</li>
+        <li>Is there a bug or issue with the API? (How to identify/test)</li>
+    </ul>
+    <li>Confirming the request being sent to /track</li>
+    <ul>
+        <li>Base64 decode the request and see if data makes it to Mixpanel -- Is the data encoded correctly?</li>
+        <li>Is the code launching the right request? (Property being sent correctly, right distinct id being used, etc.)</li>
+        <li>User having issue with something strange ($ignore, Ad Block, wrong token, aliased user, etc.)?</li>
+        <ul>
+            <li>see a response of 2 - ignore</li>
+            <li>means that they haven’t set up correctly with productive and development</li>
+            <li>$ignore is a super property to hide themselves or their companies from the data</li>
+        </ul>
+        <li>Can always compare what is being sent to what is in Live View</li>
+    </ul>
+    <li>Confirming the API export request being made</li>
+    <ul>
+        <li>Params all included?</li>
+        <li>Signature generated correctly?</li>
+        <li>Is there some syntax or small error?</li>
+    </ul>
+</ul>
+
+<h2>Common Issues</h2>
+<ul>
+    <li>Sending events to /track</li>
+    <ul>
+        <li>Code is not correct -- request will be wrong if this is true</li>
+        <li>Sending to the wrong project or attributing to wrong user (ID Management)</li>
+        <li>Data is “missing” because the code is not doing what the user thinks it is</li>
+    </ul>
+    <li>Exporting data from any endpoint</li>
+    <ul>
+        <li>Invalid request</li>
+        <li>Invalid params</li>
+        <li>Hitting the wrong endpoint entirely</li>
+        <li>&verbose = 1 if it’s not an error with the page, you could take the request out and see if it works</li>
+        <li>If you have AdBlock enabled, it can definitely block both ways. Tell them to open incognito, that means your extensions are blocking the way you view the internet</li>
+    </ul>
+</ul>
+
+<h2>Tying it all together</h2>
+<ul>
+    <li>While the above debugging is outlined for JS, concepts apply across libraries</li>
+    <ul>
+        <li>Mobile: Can have the user turn on debugging and logging, causing the API requests to Mixpanel to be logged in the SDK and allow for direct debugging of the request itself</li>
+        <li>Server: Can have the user log the request going out and send you the request so you can debug correctly. No debugging and logging from the server. You can ask for the request they’re making</li>
+    </ul>
+    <li>The truth is always in the request/code</li>
+    <ul>
+        <li>If a user says it is not working, it is likely a code and/or request issue as Mixpanel would be broken for everyone if this was not the case</li>
+        <li>If possible, it is always okay to ask to debug directly</li>
+    </ul>
+    <li>Debugging helps you spot check any issues with an implementation and find out directly why a customer might be having an issue with Mixpanel given their configuration</li>
+    <ul>
+        <li>Request failed, invalid request, bad URL, red not working as they expected - think AdBlock, the way you set your site</li>
+        <li>Eventually sites break when there’s code errors</li>
+        <li>Using the wrong token - that’s only something you’re going to see if you get the request</li>
+        <li>Admin/internal you can check for aliases </li>
+    </ul>
+</ul>
+
+<h2>Reference Material</h2>
+<ul>
+    <li><a href="https://www.evernote.com/l/AfJHIp5wY91HKqE0a0Ry68MFu8uRe1OQQ94">Keyboard Shortcuts</a></li>
+    <li><a href="https://mixpanel.com/docs/api-documentation/data-export-api">Export API</a></li>
+</ul>
+

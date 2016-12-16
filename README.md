@@ -1,48 +1,78 @@
-# Heroku Django Starter Template
+Onboarding @ Mixpanel Support
+=============================
 
-An utterly fantastic project starter template for Django 1.9.
+# About
+The purpose of this project is to improve the organization of the Support Onboarding Process.
+
+# Running this project
+## Requirements
+- [Django 1.10.3](https://docs.djangoproject.com/en/1.10/intro/install/)
+- [Virtualenv 15.1.0](https://virtualenv.pypa.io/en/stable/userguide/#usage)
+
+## Development Instructions
+- Install Django, which is the framework we use to run this project.
+- Install Virtualenv, which provides us a virtual environment in which provides Django space to run
+- Run your env in accordance with the virtualenv instructions, then return to the main repository.
+- Run `python manage.py migrate`
+- Go to your browser and type in localhost:8000
+- Enjoy!
+
+## Notes
+- The content of this guide was taken completely from the Master Onboarding Guide. I've also added some of my own content, and am totally open to editing or updating the content of the various trainings. Feel free to make a PR!
+- Questions? Contact Tiffany.
+
+# Onboarding V1
+## Features
+- [x] Render the correct objective and milestone of current week
+- [x] Render calendar events
+- [x] Flip between different days and weeks of training
+- [x] Check milestones
+- [x] Connect event with corresponding training
+- [x] Add today's date
+- [x] Add team programmatically
+
+## Front-end
+- [x] Copy over content, populate reference and getting started
+- [x] Make everything look pretty
+- [x] Make a footer
+- [x] Add final milestones for folks after 4 weeks
+
+## "Back-end"
+- [x] Establish a count for the current week
+- [x] Integrate with GCalendar API
+- [x] Integrate with Google Plus API
+- [x] Figure out how static files can extend to template
+- [x] Better way to search for trainings
+- [x] Figure out why not all the trainings are coming in
+- [ ] Get it live (TODO)
+
+## Mixpanel
+- [x] Add track call for when user clicks on button or views a page
+- [x] Add track call for when user opens a training or clicks on an external link
+- [x] Add track call for when user completes a milestone
+- [x] Set super property for today
+- [x] Register super and set people property for total milestones completed (incremental)
+- [ ] Register super and set people property for number of page views (incremental)
+- [ ] Alias and identify properly
+- [x] Create people profile
+
+# Onboarding V2:
+## Front-end
+- [ ] Make everything look prettier
+- [ ] Better content
+- [ ] Use angular
+- [ ] Convert popups to true links?
+- [ ] Get tips
 
 ## Features
+- [ ] Sign up flow
+- [ ] Add notes to training docs
+- [ ] Generalize trainings for all company
+- [ ] Add history of Support
 
-- Production-ready configuration for Static Files, Database Settings, Gunicorn, etc.
-- Enhancements to Django's static file serving functionality via WhiteNoise.
-- Latest Python 3.5 runtime environment. 
-
-## How to Use
-
-To use this project, follow these steps:
-
-1. Create your working environment.
-2. Install Django (`$ pip install django`)
-3. Create a new project using this template
-
-## Creating Your Project
-
-Using this template to create a new Django app is easy::
-
-    $ django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile helloworld
-
-You can replace ``helloworld`` with your desired project name.
-
-## Deployment to Heroku
-
-    $ git init
-    $ git add -A
-    $ git commit -m "Initial commit"
-
-    $ heroku create
-    $ git push heroku master
-
-    $ heroku run python manage.py migrate
-
-See also, a [ready-made application](https://github.com/heroku/python-getting-started), ready to deploy.
-
-## Using Python 2.7?
-
-Just update `runtime.txt` to `python-2.7.12` (no trailing spaces!).
-
-## Further Reading
-
-- [Gunicorn](https://warehouse.python.org/project/gunicorn/)
-- [WhiteNoise](https://warehouse.python.org/project/whitenoise/)
-- [dj-database-url](https://warehouse.python.org/project/dj-database-url/)
+## Back-end
+- [ ] Cleaner code
+- [ ] Optimize JS and cache loaded events
+- [ ] Consolidate constants.py and trainings.csv
+- [ ] Move client-side calendar to actually back-end
+- [ ] Programmatically find start-date

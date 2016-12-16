@@ -1,0 +1,73 @@
+<h1>Segmentation Deep Dive</h1>
+
+<h2>Multi-Segmentation</h2>
+<ul>
+    <li>Filtering: specifying a property value</li>
+    <li>Segmenting: specifying just the property key</li>
+    <li>Can segment twice</li>
+    <li>Return 625 values in multi-seg</li>
+    <ul>
+        <li>Top 25 of the first property and top 25 of the 2nd property combined</li>
+        <li>Undocumented API endpoint because it might be subject to change in a future iteration of segmentation</li>
+        <li>Inner and outer are the two properties you’re segmenting by in multi-seg</li>
+        <li>The limit in the UI is the top 25 for both properties</li>
+    </ul>
+    <li>If you segment by something with very high cardinality (city, current level, name), you will run into a case where you have more than 25 values for that property. In that case, you can export it and it will ask you if you want to export the entire dataset or the 625 segments (25 * 25), but the limit there is top 100 (100 * 100 = 10,000).</li>
+    <li><strong>FUN FACT: Segmentation can query for more than a year, but not before July 2011**</strong></li>
+</ul>
+
+<h2>Type-Casting</h2>
+<ul>
+    <li>Examples for why you may want to typecast - e.g. Integers are bucketed by Mixpanel, so if you want to study specific product/course ids, you will want to typecast the property as a string </li>
+    <li>Reasons you would want to do this: using special properties of data types</li>
+    <li>Changing the BY operator for Integers into SUM, AVG, MAX, MIN, etc.</li>
+    <li>Unix dates (Typecasted, instead of date properties) </li>
+    <ul>
+        <li>For when users want to see property values between two specific dates (can be used in People also) </li>
+        <li>Typecast into a number, then copy and paste the timestamps (This is not yet in People, so you have to typecast to an integer and use the timestamps)</li>
+        <li>Country codes → Equals, not contains. </li>
+    </ul>
+</ul>
+
+<h2>Session Length Tracking</h2>
+<ul>
+    <li>GA’s funnels are based on session IDs </li>
+    <li>Our philosophy is much different when it comes to session tracking...we really want to encourage a more insightful metric</li>
+    <li>We don’t track this automatically</li>
+    <li>There’s no industry standard for what a good session length is</li>
+</ul>
+
+<h2>Incremental Super properties</h2>
+<ul>
+    <li>Event count (# of times) as a super property</li>
+    <ul>
+        <li>You have to paste a snippet, read the Community Tip</li>
+        <li>caveat - across devices you need to increment as anticipated rather than starting over</li>
+    </ul>
+    <li>What is another example of when we could use incremental super properties?</li>
+    <ul>
+        <li>Number of purchases, number of logins, anything that you’re tracking as an incremental people property translates really well to an incremental super property</li>
+    </ul>
+</ul>
+
+<h2>Guiding Questions</h2>
+<ul>
+    <li>Difference between filtering and segmenting?</li>
+    <li>How many times can you Segment?</li>
+    <li>How many values do we return in Multi-Seg?</li>
+    <li>What is the outer and inner multi-seg limit within the UI? What about the .csv export?</li>
+    <li>What is “cardinality?”</li>
+</ul>
+
+<h2>Reference Material</h2>
+<ul>
+    <li><a href="https://mixpanel.com/help/questions/articles/what-does-an-undefined-property-mean">What does an undefined property mean</a></li>
+    <li><a href="https://mixpanel.com/help/questions/articles/how-does-mixpanel-treat-numbers">How does Mixpanel treat numbers</a></li>
+    <li><a href="https://mixpanel.com/docs/properties-or-segments/property-data-types">Property data types</a></li>
+    <li><a href="https://mixpanel.com/blog/2015/05/15/community-tip-use-property-types-to-turbocharge-reports">Use property types to Turbocharge reports</a></li>
+    <li><a href="https://mixpanel.com/blog/2014/07/14/typecasting-date-properties">Typecasting Date Properties</a></li>
+    <li><a href="https://mixpanel.com/blog/2015/03/02/community-tip-list-properties">List Properties</a></li>
+    <li><a href="https://mixpanel.com/blog/2015/06/22/community-tip-session-length-tracking">Session Length Tracking</a></li>
+    <li><a href="https://mixpanel.com/blog/2014/10/27/measure-how-long-things-take-within-your-ios-app">Measure how long things take within your iOS app</a></li>
+    <li><a href="https://mixpanel.com/blog/2015/01/29/incremental-super-properties">Incremental Super Properties</a></li>
+</ul>

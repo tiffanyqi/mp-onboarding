@@ -1,0 +1,73 @@
+<h1>Deep Dive into People vs Engagement/People Reports</h1>
+
+<h2>People vs. Engagement</h2>
+<p>People data allow you to study and engage your users based off their current, up-to-date profile.  Event data allow you to study your users based off each of their actions, and their individual, evolving characteristics, over time. </p>
+<ul>
+    <li>Why are these two separate? </li>
+    <ul>
+        <li>What do we usually say to customers (i.e. what are the benefits of keeping them separate?)</li>
+        <li>It has to do a lot with how the platform is created, that gap is going to shrink and shrink and shrink until it’s gone</li>
+    </ul>
+    <li>What are the biggest customer pain points that come up with regards to this?</li>
+    <ul>
+        <li>“Can I see a list of users who did an event” (yes)</li>
+        <li>“Can I send a notification to users who did an event X number of times?” (no)</li>
+        <li>“Transactional notifications" (Can’t do that based on the signup, but you can store as a people profile property)</li>
+    </ul>
+    <li>Setting People Properties as Super Properties </li>
+    <ul>
+        <li>What are some examples of user-specific/cohort-centric information that could be stored?</li>
+    </ul>
+    <li>Seeing People who did certain events </li>
+    <ul>
+        <li>Why track this? Explore can be useful to gather a list of users based off Events that they have triggered/milestones they have accomplished across their lifecycle.  You can also send Event-based Notifications if you track these Events as People properties.</li>
+        <ul>
+            <li>First time a user did something, </li>
+            <li>Last time a user did something, </li>
+            <li>Number of times the user has done something in their lifetime</li>
+        </ul>
+    </ul>
+    <li>Transactional email </li>
+    <ul>
+        <li>Multiple Campaigns? Sometimes we have to admit that Mixpanel isn’t built for everything, but we’ve got a helluva a lot to offer! :)</li> 
+    </ul>
+</ul>
+
+<h2>People Analytics</h2>
+<ul>
+    <li>Event and People Data are separate (as of August 7th, not completely!) so best practice is still to </li>
+    <ul>
+        <li>track People characteristics as both Event Super Properties and People properties </li>
+        <li>Track lastest Event-related info specific to each user as People properties on their profile page</li>
+    </ul>
+    <li>What are some common questions</li>
+    <ul>
+        <li>“Can I see a list of users who did an event”</li>
+        <li>“Can I send a notification to users who did an event X number of times?” (What’s the solution here? DOUBLE TRACK)</li>
+        <ul>
+            <li>First time a user did something, </li>
+            <li>Last time a user did something, </li>
+            <li>Number of times the user has done something in their lifetime</li>
+        </ul>
+    </ul>
+    <li><a href="https://mixpanel.com/help/reference/javascript-full-api-reference#mixpanel.people.set">mixpanel.people.set()</a> vs <a href="https://mixpanel.com/help/reference/javascript-full-api-reference#mixpanel.people.increment">mixpanel.people.increment()</a> vs. <a href="https://mixpanel.com/help/reference/javascript-full-api-reference#mixpanel.people.append">append</a> vs <a href="https://mixpanel.com/help/reference/javascript-full-api-reference#mixpanel.people.union">union</a> vs etc. etc.</li>
+</ul>
+
+<h2>Revenue Report</h2>
+<ul>
+    <li>How is revenue accounted for in Mixpanel?</li>
+    <li>What methods are used to populate the Revenue Report? Can we see properties passed into the track_charge method in any reports?</li>
+    <li>Best practices of tracking transactions</li>
+    <ul>
+        <li>Tracking it as an event with Super Properties (can also increment a super property to show on every event the lifetime revenue of a user at all times!)</li>
+        <li>Custom revenue people property</li>
+        <li>Track_charge() has it’s limitations.  If you want to break down transactions -> Segmentation</li>
+    </ul>
+</ul>
+
+<h2>Reference Material</h2>
+<ul>
+    <li><a href="https://mixpanel.com/help/reference/javascript-full-api-reference#mixpanel.people.set">Mixpanel People API Reference</a></li>
+    <li><a href="https://mixpanel.com/blog/2015/03/30/community-tip-people-properties-best-practices">People Best Practices</a></li>
+    <li><a href="https://mixpanel.com/blog/2014/07/21/revenue-best-practices">Revenue Best Practices</a></li>
+</ul>

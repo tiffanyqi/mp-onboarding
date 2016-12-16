@@ -1,0 +1,31 @@
+{% extends "onboarding/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <div class="group" style="margin: 50px">
+        <h1>Trainings</h1>
+        <ul>
+        {% for training, training_link in training_views.items %}
+            <li><a class="training-link" id="{% static training_link %}">{{ training }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="popup">
+        <div class="popup-content">
+            <span class="close">x</span>
+            <div id="training-content"></div>
+        </div>
+    </div>
+    <script>
+        trackPageView('Trainings');
+    </script>
+{% endblock %}
+
+{% block bottom %}
+    {{ block.super }}
+{% endblock %}

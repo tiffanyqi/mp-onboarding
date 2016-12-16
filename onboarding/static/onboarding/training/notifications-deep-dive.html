@@ -1,0 +1,71 @@
+<h1>Deep dive into Notifications</h1>
+
+<h2>Guiding Questions</h2>
+<ul>
+    <li>Mixpanel Notifications are ONE-OFF.  What are the implications of this?</li>
+    <li>Targeting criteria for Mixpanel Notifications are structured around People properties. What are the implications of this, i.e. if I want to send Notifications based off user behaviour, what kind of People properties would I need to set?</li>
+    <li>What method of outreach does Mixpanel have?</li>
+    <li>What do I need to set up in my Mixpanel project/app to use each medium?</li>
+</ul>
+
+<h2>Extra Notes About the Different Notifications</h2>
+
+<h3>Email</h3>
+<p><strong>Property:</strong> $email</p>
+<p>Even if $unsubscribed “is not set” will still not receive messages</p>
+
+<h3>Push</h3>
+<p><strong>Property:</strong> certification and token, $ios_device (OPT-IN) / $android_device (OPT-OUT)</p>
+<ul>
+    <li>Asking for permission for push notifications is not default in Apple</li>
+    <li>You need to set up that question in your app</li>
+    <li>It’s all automated but you do need to have the code...this gives you the push token</li>
+    <li>When you say no, it puts a flag in Apple’s APN</li>
+    <li>Apple will give us a notification when someone turns off notifications - we delete the profile</li>
+    <li>You can only ask the question once</li>
+    <li>If they delete the app, have it deleted for more than 24 hours </li>
+    <li>If you collect a device ID in your sandbox environment, it can be different in the production environment</li>
+    <li>If you save device IDs on server in sandbox, then push production side</li>
+    <li>The device has to have been collected on the project in order to be able to send it - it needs to be sent in the exact environment it was collected in</li>
+</ul>
+
+<h3>In-app / Surveys</h3>
+<ul>
+    <li>Library installed. You need to have a profile and a mobile device. We have ways of manually displaying it.</li>
+    <li>Turn auto-show off and pick a really stable way to show it manually on web</li>
+    <li>You have to identify a user to be able to show it to them</li>
+    <li>Show survey with ID</li>
+    <li>Chron schedules our other notifications</li>
+    <li>Decide endpoint that runs A/B test and in-app and surveys is its own world and is super fast</li>
+    <li>It’s really hard to do in-apps and web in-apps when a page is viewed the first time</li>
+</ul>
+
+<h3>SMS</h3>
+<p><strong>Property:</strong> $phone</p>
+<ul>
+    <li>This will follow the unsubscribe rule</li>
+    <li>Sent through Twilio</li>
+    <li>You will rarely see unsubscribed set for phone</li>
+    <li>Do we charge around this?</li>
+</ul>
+
+<h3>Webhooks</h3>
+<ul>
+    <li>Post to a server</li>
+    <li>Browsers make GET requests and HTML comes back</li>
+    <li>POST requests send you information, and all you expect back is an answer</li>
+    <li>There are also EDITS and DELETES</li>
+    <li>I want to create a notification for when this criteria is met, MP will send a post request to my server with all of the users information that meet that criteria</li>
+    <li>This is helpful for actually making actionable things</li>
+    <li>For example, a webhook for people who make their 100th purchase</li>
+    <li>All you need for a webhook is an address to send it to</li>
+    <li>Whatever endpoint you set on your server to receive post requests</li>
+    <li>All we do is send a JSON object of users</li>
+</ul>
+
+<h2>Reference Material</h2>
+<ul>
+    <li><a href="https://mixpanel.com/help/questions/articles/why-are-users-not-sent-my-notification">Why are users not send my notification?</a></li>
+    <li><a href="https://mixpanel.com/help/questions/articles/why-arent-my-push-notifications-sending">Why aren't my push notifications sending?</a></li>
+</ul>
+

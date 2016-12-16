@@ -1,0 +1,61 @@
+<h1>Deep Dive into Identity Management</h1>
+<h2>Guiding Questions</h2>
+<h3>What is the role/significance of distinct_id?</h3>
+<ul>
+    <li>Explain to a customer who is implementing Mixpanel for the first time, what is distinct_id?</li>
+    <li>In what reports does it play a significant role?</li>
+    <li>What happens when all users have the same distinct_id?</li>
+    <li>What happens if a user’s distinct_id changes across their lifecycle?</li>
+    <ul>
+        <li>How might this happen?</li>
+        <li>If someone calls identify if you haven’t called alias</li>
+    </ul>
+</ul>
+<h3>Managing identity - the methods</h3>
+<ul>
+    <li>What does the alias call do? Allows you to link pre-authentication activity to post-authentication activity using an alias table - specific to your project. Searches through table, finds that “bob” is just a placeholder for 123.</li>
+    <ul>
+        <li>Does the distinct_id change with the alias call?</li>
+    </ul>
+    <li>What does the identify call do? Changes the distinct_id, and creates a profile (links people.set activity to profile)</li>
+    <ul>
+        <li>Does the distinct_id  change if you are calling identify on the original distinct_id? Only if you don’t call alias first</li>
+        <li>When would you call it on the original distinct_id, and when would you call it on a different distinct_id?)</li>
+        <li>What else does it do?</li>
+        <li>Note: Trainees seem to grasp the concept of alias, but we need to do a better job of making sure they also understand the role and importance of the identify as a standalone method</li>
+    </ul>
+    <li>What is the “best practice” for using the alias and identify calls?</li>
+    <ul>
+        <li>Why?</li>
+    </ul>
+    <li>Alias table lives in Mixpanel in the back end...you can check if a specific value is an existing alias via mixpanel.com/admin/internal. Alias tables are specific to projects and cannot be exported.</li>
+</ul>
+<h3>Tripwires and booby traps around identity management</h3>
+<ul>
+    <li>New Hire: Define an orphaned profile?</li>
+    <li>What is a race condition?</li>
+    <ul>
+        <li>How is this caused?</li>
+        <li>How does one avoid a race condition?</li>
+    </ul>
+</ul>
+<ul>
+    <li>Cross platform tracking</li>
+    <ul>
+        <li>Do you send information to separate projects, or the same one?</li>  
+        <li>Can you Funnel, compare Segmentation across projects?</li>
+        <li>What are the pros and cons of putting data across different platforms in the same project?</li>
+    </ul>
+    <li>Use cases, edge cases</li>
+    <ul>
+        <li>“How should I handle my identity management system when I already have pre-existing users who have already signed up and therefore won’t be aliased?”</li>
+        <li>“How do I prepare my app for multiple users to create accounts on the same (read shared family iPad) device?”</li>
+    </ul>
+</ul>
+
+<p>**Identity management is different for each of the client-side libraries, so make sure to check!!**</p>
+
+<h2>Reference Material</h2>
+<ul>
+    <li><a href="https://aa955481-a-41a94c57-s-sites.googlegroups.com/a/mixpanel.com/mixpanel-operations-wiki/home/teams/support/support-knowledge-share/identity-management-alias-101/Identity Management %281%29.pdf?attachauth=ANoY7cpZJC0XDQXJPf0tAdT6L37MZlOhOo0JUwSPzUhKhV1SAhAlyzR2LfQb_jxEGCNCws0_ugHtZWJfcTm5gJWdYADVEQzT5MmQ0nHYz9WodbeE2GK8cv7qEpKz1KzeAJV2u3FEOjbWn77xlMV7m1QzYTlmG_C2TSuO1KdJ4BUVAp2lAoLc7PBhp_hZBwt9Jjz_xdAeF_HRCgQFPZ57H4XVD-JR0xj_4TzsEydbV_Xgb9gJuq4aexTP2LV1rfa9VlBOaUii-aRmOHfTVriMnhemhWiLJlytDux4igUuDg16_ZXMuINtplxV3V73bZwfR8ntH8FyIzTCu_qsHCbBHvJluODgRwksxbFSbpzh8VRQXOAPYY08rHA%3D&attredirects=0">Visual Guide</a></li>
+</ul>

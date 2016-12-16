@@ -1,0 +1,73 @@
+<h1>A/B Testing and Auto-Event Tracking</h1>
+
+<h2>Auto-Event Tracking Guiding Questions</h2>
+<ul>
+    <li>When to use, when not to use?</li>
+    <li>What is Decide? </li>
+    <li>What happens when a device connects to the builder?</li>
+    <li>How is an event delivered?</li>
+    <li>What elements can be selected?</li>
+    <li>Relationship between Auto-Event Tracking and A/B Testing</li>
+    <li>What to do when things break?</li>
+</ul>
+
+<h2>A/B Testing</h2>
+
+<h3>High Level Overview</h3>
+<ol>
+    <li>Mixpanel pushes the active test to the /decide server (Can include UI changes, tweaks, or both)</li>
+    <li>Device checks the /decide server for any new A/B tests available</li>
+    <li>In iOS, the device stores the experiment in short-term memory (cache); in Android, the device continuously checks the server every 60 seconds</li>
+    <li>Upon next app open, the A/B test will be applied (Users can change this behavior through code to be quicker)</li>
+    <li>Device keeps serving this experiment to the user until it is disabled in Mixpanel</li>
+</ol>
+
+<h3>Creating an A/B Test</h3>
+<ul>
+    <li>In order to use, must be SDK version: 2.6.0+ iPhone or 4.6.0+ Android</li>
+    <li>Once Mixpanel is initialized on the device, you can connect to the A/B test designer using a gesture (can configure options to change this behavior)</li>
+    <li>Can create and modify different elements of an app</li>
+    <ul>
+        <li>UI changes -- text, color, position, etc. on structured elements</li>
+        <li>Tweaks -- changing variables like booleans, ints, strings, etc. within code</li>
+        <li>Can use the variables to alter in-app experiences (Ex: Gameplay speed in a game or flow within a signup process)</li>
+    </ul>
+    <li>When testing, you can deploy the test to just your device to see the behavior</li>
+    <ul>
+        <li>Device will need to have right code enabled to show the A/B test</li>
+    </ul>
+    <li>How does the A/B test show in Mixpanel reporting</li>
+    <ul>
+        <li>Live View of the experiment delivering</li>
+        <li>Look for the “Experiment Started” event to show A/B test delivery</li>
+    </ul>
+    <li>A/B testing tab analytics</li>
+    <ul>
+        <li>Funnel looking for “Experiment Started” where the “Experiment Id” property is the one for the experiment and on “Experiments” super property including the experiment</li>
+        <li>“Experiment Started” tracks that a user is actively in an experiment, “Experiments” property shows all experiments a user has been previously exposed to (NOT necessarily actively in an experiment)</li>
+        <li>Don’t segment by experiment property in Segmentation</li>
+    </ul>
+    <li>Can see device connect through the console</li>
+    <ul>
+        <li>Device uses a websocket to connect to the A/B test designer</li>
+        <li>1:1 connection between the phone and the designer</li>
+        <li>only 1 person can connect per project</li>
+    </ul>
+</ul>
+
+<h3>Other Notes</h3>
+<ul>
+    <li>There is a UI label at a certain memory location in the app - “swizzling” in iOS and “view crawler” in Android</li>
+    <li>Goes through all memory and changes those elements</li>
+    <li>Mixpanel variant of UI changes and tweaks sent in JSON to the /decide server</li>
+    <li>Decide server is a place where we store stuff to send to device for all magical in-app notifications, surveys, and experiments</li>
+    <li>Open the app, sends API request to server with id=Marissa, and decide server returns JSONiOS pings decide one time on app open and stores it in the cache (stores short term)Android goes back and checks every 60 seconds. Ideally we’d like to use cache on Android right nowHow does Mixpanel randomize - always using the distinct IDYou can target specific groups</li>
+    <li>Doesn’t apply instantly because there’s a latency, so we intentionally don’t apply that test right away (As referenced in the first info block under iOS A/B testing <a href="https://mixpanel.com/help/reference/android#ab_testing">here</a></li>
+</ul>
+
+<h2>Reference Material</h2>
+<ul>
+    <li><a href="https://docs.google.com/presentation/d/1zi8A11uBC9S0TjO-mQovbEl1XBQGBNtsus1LNNJ4ZKQ/edit#slide=id.p4">Autotrack Presentation</a></li>
+    <li><a href="https://mixpanel.com/help/reference/android#ab_testing">AB Testing in Android</a></li>
+</ul>
+

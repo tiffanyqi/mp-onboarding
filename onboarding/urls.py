@@ -16,6 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from onboarding import views
+
 urlpatterns = [
+    url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
+    url(r'^trainings/$', views.trainings, name='trainings'),
+    url(r'^getting-started/$', views.intro, name='intro'),
+    url(r'^reference/$', views.reference, name='reference'),
+    url(r'^team/$', views.team, name='team'),
 ]

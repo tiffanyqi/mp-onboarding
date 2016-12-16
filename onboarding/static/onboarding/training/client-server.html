@@ -1,0 +1,88 @@
+<h1>Overview of Client vs Server-side implementations</h1>
+
+<h2>Pros and Cons</h2>
+<table>
+    <tr>
+        <th></th>
+        <th>Pros</th>
+        <th>Cons</th>
+    </tr>
+    <tr>
+        <td>Client-side implementation</td>
+        <td>
+            <ul>
+                <li>The library handles distinct_id for your</li>
+                <li>“Default” properties are automatically grabbed from the local machine</li>
+                <li>A lot technically easier to do client-side</li>
+                <li>MaxMind provides geolocation (city, region, country) from IP address - IPs are purged and never on our servers</li>
+                <li>MP automatically updates “Last Seen” when you call mixpanel.identify(“XYZ”)</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Do the signups match to revenue I’m getting</li>
+                <li>Mixture of client and server side gives you the ability to audit</li>
+                <li>Mobile app making updates to what you’re tracking...you can think of that tracking as hard coded unless their user updates</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Server-side implementation</td>
+        <td>
+            <ul>
+                <li>Easy to do if you’re already collecting data in your server</li>
+                <li>“More control” if you control your own data (security wise etc.)</li>
+                <li>Set your own distinct_id (depends?)</li>
+                <li>Scalability </li>
+                <li>Exporting millions of datapoints in JSON is not fun...if you know you’re going to have a lot of data you want to do a server-side implementation</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Can’t have super properties automatically append...you just need to pull it from your database</li>
+                <li>Geolocation override </li>
+                <li>“Last Seen” issue if you’re batch updating and you send all of those people.set...everything will be set to the time you sent that</li>
+                <li>$ignore_time = 1</li>
+                <li>Assign your own distinct_id (depends?)</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<h2>High level overview of client side libs vs, server-side implementations </h2>
+<ul>
+    <li>What’s the difference?</li>
+    <ul>
+        <li>Client-side: data from client interacting with webpage sent directly to MP</li> 
+        <li>Server-side: you need to set up your server to send events to MP</li>   
+        <li>Server languages: Python, Ruby, Action Script 3, PHP</li>   
+    </ul>
+    <li>What are the pros and cons of both?</li>
+    <ul>
+        <li>From a technical & implementation viewpoint</li>
+        <li>Can you have super properties with server-side implementations? How do you send properties that apply to every event?</li>
+        <li>Managing distinct_id and super properties in exchange for scalability and precise data</li>
+    </ul>
+</ul>
+
+<h2>Common problems that can occur</h2>
+<ul>
+    <li>IP address - how do we determine geolocation with Maxmind? What happens if we don’t add ip = 0 to our server-side calls?</li>
+    <li>Unintended ‘Last Seen’ Updates</li>
+    <li>If an event or People update comes in via different distinct_id via your servers, what is the result?</li>
+    <li>Broken Funnels</li>
+    <li>Orphaned profiles in the context of client & server implementations</li>
+</ul> 
+
+<h2>Other Notes</h2>
+<ul>
+    <li>No distinct_ids means no data in funnels…</li>
+    <li>HTTP → HTTPS becomes $direct</li>
+    <li>Refer can be super secretive and encrypted - Google, Apple don’t show this information</li>
+    <li>If the distinct_id originates from the client, mixpanel.get_distinct_id() passes Mixpanel’s distinct_id to the server (probably in the URL) OR, you can alias “will” to 123 and register the alias as a super property. then .get_property(“alias”)</li>
+</ul>
+
+<h2>Reference Material</h2>
+<ul>
+    <li><a href="https://mixpanel.com/blog/2014/09/08/everything-about-server-side-updates">Everything about Server-side updates</a></li>
+</ul>
