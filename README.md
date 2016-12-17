@@ -44,7 +44,10 @@ The purpose of this project is to improve the organization of the Support Onboar
 - [x] Figure out how static files can extend to template
 - [x] Better way to search for trainings
 - [x] Figure out why not all the trainings are coming in
-- [ ] Get it live (TODO)
+- [x] Show static files
+- [x] Get it live
+- [x] Connect to Google in production
+- [ ] Establish security
 
 ## Mixpanel
 - [x] Add track call for when user clicks on button or views a page

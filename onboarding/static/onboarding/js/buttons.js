@@ -3,7 +3,7 @@ $('#previous-week').click(function(e) {
     trackButton(e, currentDay);
 });
 $('#next-week').click(function(e) {
-    weekToggle(4, 1, 7);
+    weekToggle(weekLimit/7, 1, 7);
     trackButton(e, currentDay);
 });
 $('#previous-day').click(function(e) {

@@ -87,6 +87,7 @@ function getUser() {
     var email = resp.emails[0].value;
     localStorage.setItem('name', firstName);
     if (authClick) {
+      $('#self').append(', ' + firstName);
       createProfile(firstName, lastName, email);
       authClick = false;
     }
@@ -101,7 +102,7 @@ function getUser() {
 function listUpcomingEvents() {
   var request = gapi.client.calendar.events.list({
     'calendarId': 'primary',
-    'timeMin': (new Date(2014)).toISOString(),
+    'timeMin': (new Date(2013)).toISOString(),
     'showDeleted': false,
     'singleEvents': true,
     'maxResults': 1000,
