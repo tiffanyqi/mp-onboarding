@@ -16,12 +16,20 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "@$qk%+*+m$l@uo8sqg+cnvqk+q4(5ump#-azrd3&(q8a0-hu=z"
+PRODUCTION = True
+
+if PRODUCTION:
+    SECRET_KEY = ENV['MPO_DJANGO_SECRET_KEY']
+    GOOGLE_CALENDAR_API_CLIENT_ID = ENV['MPO_GOOGLE_CALENDAR_API_CLIENT_ID']
+    GOOGLE_CALENDAR_API_CLIENT_SECRET = ENV['MPO_GOOGLE_CALENDAR_API_CLIENT_SECRET']
+else:
+    SECRET_KEY = os.environ['MPO_DJANGO_SECRET_KEY']
+    GOOGLE_CALENDAR_API_CLIENT_ID = os.environ['MPO_GOOGLE_CALENDAR_API_CLIENT_ID']
+    GOOGLE_CALENDAR_API_CLIENT_SECRET = os.environ['MPO_GOOGLE_CALENDAR_API_CLIENT_SECRET']
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
