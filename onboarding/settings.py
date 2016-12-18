@@ -19,7 +19,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-PRODUCTION = False
+PRODUCTION = True
 
 if PRODUCTION:
     SECRET_KEY = ENV['MPO_DJANGO_SECRET_KEY']
@@ -32,7 +32,7 @@ else:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
