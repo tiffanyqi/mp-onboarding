@@ -14,6 +14,8 @@ The purpose of this project is to improve the organization of the Support Onboar
 - Install Virtualenv, which provides us a virtual environment in which provides Django space to run
 - Run your env in accordance with the virtualenv instructions, then return to the main repository.
 - Run `python manage.py migrate`
+- Change 'PRODUCTION' to False in settings.py
+- Comment out the prod Mixpanel key and use the dev one in mixpanel.js
 - Go to your browser and type in localhost:8000
 - Enjoy!
 
