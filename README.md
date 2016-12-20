@@ -16,6 +16,7 @@ The purpose of this project is to improve the organization of the Support Onboar
 - Run `python manage.py migrate`
 - Change 'PRODUCTION' to False in settings.py
 - Comment out the prod Mixpanel key and use the dev one in mixpanel.js
+- Get keys
 - Go to your browser and type in localhost:8000
 - Enjoy!
 
