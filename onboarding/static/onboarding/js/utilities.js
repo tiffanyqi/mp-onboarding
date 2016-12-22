@@ -117,7 +117,7 @@ function formatTime(training) {
  * Load checkboxes that users clicked on
  */
 function checkCheckboxes() {
-  for (var i = 0; i < 43; i++) {
+  for (var i = 0; i < 40; i++) {
     var mstone = 'mstone' + i.toString();
     if (localStorage.getItem(mstone)) {
       $('#' + mstone + ' input').prop('checked', true);

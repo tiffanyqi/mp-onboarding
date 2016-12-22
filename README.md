@@ -14,9 +14,8 @@ The purpose of this project is to improve the organization of the Support Onboar
 - Install Virtualenv, which provides us a virtual environment in which provides Django space to run
 - Run your env in accordance with the virtualenv instructions, then return to the main repository.
 - Run `python manage.py migrate`
-- Change 'PRODUCTION' to False in settings.py
 - Comment out the prod Mixpanel key and use the dev one in mixpanel.js
-- Get keys
+- Get keys, and input into your ~/.bash_profile
 - Go to your browser and type in localhost:8000
 - Enjoy!
 
@@ -39,6 +38,8 @@ The purpose of this project is to improve the organization of the Support Onboar
 - [x] Make everything look pretty
 - [x] Make a footer
 - [x] Add final milestones for folks after 4 weeks
+- [ ] Upon checkmark, then x out
+- [ ] When click on a nav link, move a little down
 
 ## "Back-end"
 - [x] Establish a count for the current week
@@ -50,7 +51,6 @@ The purpose of this project is to improve the organization of the Support Onboar
 - [x] Show static files
 - [x] Get it live
 - [x] Connect to Google in production
-- [ ] Establish security
 
 ## Mixpanel
 - [x] Add track call for when user clicks on button or views a page
@@ -82,3 +82,4 @@ The purpose of this project is to improve the organization of the Support Onboar
 - [ ] Consolidate constants.py and trainings.csv
 - [ ] Move client-side calendar to actually back-end
 - [ ] Programmatically find start-date
+- [ ] Establish security
