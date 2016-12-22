@@ -22,9 +22,9 @@ $('#today').click(function(e) {
     determineDay(today);
     trackButton(e, currentDay);
 });
-$('.mstone-checkbox').click(function(e) {
+$('.mstone-checkbox').change(function(e) {
     var id = e.currentTarget.id;
-    if (localStorage.getItem(id)) {
+    if (localStorage.getItem(id) && !this.checked) {
         localStorage.removeItem(id);
         $('#' + id).removeClass('strikethrough');
     } else {
@@ -50,4 +50,10 @@ $('.close').click(function(e) {
 });
 $('.popup').click(function(e) {
     $('.popup').removeClass('visible');
+});
+$(".started-nav").click(function() {
+    var topHeight = $(".nav").height();
+    $("html, body").animate({
+        scrollTop: $(this.hash).offset().top - topHeight
+    });
 });

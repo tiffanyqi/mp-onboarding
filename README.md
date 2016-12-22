@@ -38,8 +38,8 @@ The purpose of this project is to improve the organization of the Support Onboar
 - [x] Make everything look pretty
 - [x] Make a footer
 - [x] Add final milestones for folks after 4 weeks
-- [ ] Upon checkmark, then x out
-- [ ] When click on a nav link, move a little down
+- [x] Upon checkmark, then x out
+- [X] When click on a nav link, move a little down
 
 ## "Back-end"
 - [x] Establish a count for the current week
@@ -69,6 +69,7 @@ The purpose of this project is to improve the organization of the Support Onboar
 - [ ] Use angular
 - [ ] Convert popups to true links?
 - [ ] Get tips
+- [ ] Add favicon
 
 ## Features
 - [ ] Sign up flow
