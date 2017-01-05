@@ -3,8 +3,8 @@
 0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
 for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
 
-mixpanel.init("fb040e46128c832e488ed81d7dc70497"); // dev
-// mixpanel.init("63f6ad94f9fe8a094bc37754053a6678"); // prod
+// mixpanel.init("fb040e46128c832e488ed81d7dc70497"); // dev
+mixpanel.init("63f6ad94f9fe8a094bc37754053a6678"); // prod
 
 $(document).ready(function() {
   $('a').click(function(event) {
@@ -42,6 +42,7 @@ function incrementer(property) {
  *@param {Email} Email of user
  */
 function createProfile(firstName, lastName, email) {
+  console.log('hi');
   mixpanel.alias(email); // should this be?
   mixpanel.identify();
   // if email exists as a distinct_id, then set property
