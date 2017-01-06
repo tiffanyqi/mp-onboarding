@@ -42,8 +42,7 @@ function incrementer(property) {
  *@param {Email} Email of user
  */
 function createProfile(firstName, lastName, email) {
-  console.log('hi');
-  mixpanel.alias(email); // should this be?
+  mixpanel.alias(email);
   mixpanel.identify();
   // if email exists as a distinct_id, then set property
   mixpanel.people.set({
@@ -53,7 +52,8 @@ function createProfile(firstName, lastName, email) {
   '$email': email
   });
   mixpanel.register({
-    'Today': today
+    'Today': today,
+    'Name': firstName + ' ' + lastName
   });
 }
 

@@ -11,7 +11,6 @@ var today; // number of today relative to start
 var todayDate; // the date of calendar rendering
 var weekLimit = 49;
 var calendar = buildTrainingCalendar();
-var authClick = false; // did the user press the button just now?
 
 /**
  * Check if current user has authorized this application.
@@ -52,7 +51,6 @@ function handleAuthClick(event) {
   gapi.auth.authorize(
     {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
     handleAuthResult);
-  authClick = true;
   return false;
 }
 
@@ -85,11 +83,12 @@ function getUser() {
     var firstName = resp.name.givenName;
     var lastName = resp.name.familyName;
     var email = resp.emails[0].value;
-    localStorage.setItem('name', firstName);
-    if (authClick) {
+    if (!localStorage.getItem('firstName')) {
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('lastName', lastName);
+      localStorage.setItem('email', email);
       $('#self').append(', ' + firstName);
       createProfile(firstName, lastName, email);
-      authClick = false;
     }
   });
 }

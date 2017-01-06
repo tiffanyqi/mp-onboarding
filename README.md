@@ -65,13 +65,14 @@ The purpose of this project is to improve the organization of the Support Onboar
 # Onboarding V2:
 ## Front-end
 - [ ] Make everything look prettier
-- [ ] Better content
+- [ ] Better content (milestones/objectives currently [here](https://docs.google.com/document/d/1LieLqdeWJGS1qPixCpKvHEIf53ND916PbkI_D3Itu8A/edit?ts=585c12a7))
 - [ ] Use angular
 - [ ] Convert popups to true links?
 - [ ] Get tips
 - [ ] Add favicon
 
 ## Features
+- [ ] Allow managers/mentors to see calendar and milestones of new support engineer
 - [ ] Sign up flow
 - [ ] Add notes to training docs
 - [ ] Generalize trainings for all company
