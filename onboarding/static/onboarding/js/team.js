@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var firstName = localStorage.getItem('name');
+    var firstName = localStorage.getItem('firstName');
     if (firstName) {
         $('#self').append(', ' + firstName);
     }

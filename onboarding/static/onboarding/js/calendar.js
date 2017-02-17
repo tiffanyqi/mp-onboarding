@@ -88,7 +88,7 @@ function getUser() {
       localStorage.setItem('lastName', lastName);
       localStorage.setItem('email', email);
       $('#self').append(', ' + firstName);
-      createProfile(firstName, lastName, email);
+      createProfile(firstName, lastName, email, new Date(start));
     }
   });
 }
@@ -121,8 +121,10 @@ function listUpcomingEvents() {
     }
     currentWeek = determineDifference('week', start, now);
     currentDay = determineDifference('day', start, now);
+    actualDay = determineDifference('day', start, currentDay);
     today = currentDay;
     displaySchedule(currentWeek, currentDay);
+    registerDates(currentWeek, today, new Date(start));
   });
 }
 

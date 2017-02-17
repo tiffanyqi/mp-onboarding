@@ -33,19 +33,32 @@ function incrementer(property) {
  *@param {lastName} Last name of user
  *@param {Email} Email of user
  */
-function createProfile(firstName, lastName, email) {
+function createProfile(firstName, lastName, email, start) {
   mixpanel.alias(email);
   mixpanel.identify();
   // if email exists as a distinct_id, then set property
   mixpanel.people.set({
-  '$first_name': firstName,
-  '$last_name': lastName,
-  '$name': firstName + ' ' + lastName,
-  '$email': email
+    '$first_name': firstName,
+    '$last_name': lastName,
+    '$name': firstName + ' ' + lastName,
+    '$email': email,
+    'Start Date': start
   });
+}
+
+/**
+ * Continue to register the correct the dates
+ *
+ *@param {today} What day user is looking at
+ *@param {currentDay} How many days the user's been here
+  (not related to calendar button toggles)
+ *@param {start} User's start date
+ */
+function registerDates(currentWeek, currentDay, start) {
   mixpanel.register({
-    'Today': today,
-    'Name': firstName + ' ' + lastName
+    'Current Week': currentWeek,
+    'Current Day': currentDay,
+    'Start Date': start,
   });
 }
 
