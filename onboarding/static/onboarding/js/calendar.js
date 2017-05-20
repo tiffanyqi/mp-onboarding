@@ -169,7 +169,6 @@ function displaySchedule(week, day) {
     $("." + week.toString()).show();
     checkCheckboxes();
   }
-  console.log(start);
 }
 
 /**
