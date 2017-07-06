@@ -76,7 +76,43 @@
                 <li><a href="https://calendly.com/dashboard">Calendly</a>: Schedule meetings with customers (recommended)</li>
                 <li><a href="https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&gclid=Cj0KEQiAguXBBRCE_pbQ5reuq8MBEiQANji2LTrJx6jV3M2i8DVoyBcw-IGp6TZjLsdn38wTYImFeAYaAswh8P8HAQ">Chrome</a>: Our favorite browser</li>
                 <li><a href="https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd">Chromecast</a>: Send content to your Chromecast (usually used when we want to share our screens in meetings)</li>
-                <li>Custom Search Engine: Search specific sites instead of using Google. Examples are searching through mixpanel.com/admin/internal for internal users, and mixpanel.com/help/questions for common questions. Start <a href="https://cse.google.com/cse/">here</a></li>
+                <li>Custom Search Engine: Search specific sites instead of using Google. Examples are searching through mixpanel.com/admin/internal for internal users, and mixpanel.com/help/questions for common questions. To create shortcuts in Chrome, go to Preferences, and scroll down to "Manage Search Engines". Then click "Add" for the below shortcuts:</li>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Search Engine</th>
+                            <th>Keyword</th>
+                            <th>URL with %s in place of query</th>
+                            <th>About</th>
+                        </tr>
+                    <thead>
+                    <tbody>
+                        <tr>
+                            <td>Mixpanel FAQ</td>
+                            <td>help</td>
+                            <td>https://mixpanel.com/help/questions/search?q=%s</td>
+                            <td>An interface that allows you to search our external knowledge base. Feel free to use any keyword that helps! I use "help".</td>
+                        </tr>
+                        <tr>
+                            <td>Mixpanel User Search</td>
+                            <td>dj</td>
+                            <td>https://mixpanel.com/admin/internal/users/?search=%s</td>
+                            <td>Django user search (you can search by email address, or project token). "Dj" is typically what the team uses, I'd suggest using dj.</td>
+                        </tr>
+                        <tr>
+                            <td>Salesforce Search</td>
+                            <td>sf</td>
+                            <td>https://na15.salesforce.com/_ui/search/ui/UnifiedSearchResults?str=%s</td>
+                            <td>Search anything in Salesforce. Feel free to replace whatever keyword is best.</td>
+                        </tr>
+                        <tr>
+                            <td>Bit.ly Link Shortner</td>
+                            <td>bitly</td>
+                            <td>https://bitly.com/shorten/%s</td>
+                            <td>Shorten a link using bit.ly. Feel free to replace whatever keyword works best for you!</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <li><a href="https://mixpanel.okta.com/home/dropbox/0oamgctrm6BvEw3v80x6/240?fromHome=true">Dropbox</a>: Another file sharing software</li>
                 <li><a href="https://mixpanel.okta.com/home/expensifysaml/0oaoxzs45msK4dlJq0x6/46405?fromHome=true">Expensify</a>: Request Mixpanel to fund your spending! (The way you are expensed that lovely $300 desk budget)</li>
                 <li><a href="https://chrome.google.com/webstore/detail/ghostery/mlomiejdfkolichcflejclcbmpeaniij">Ghostery</a>: View who's tracking your web browsing</li>
