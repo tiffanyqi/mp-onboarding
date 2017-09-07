@@ -137,19 +137,19 @@ function listUpcomingEvents() {
 function generateCalendar(event, training) {
   var when = event.start.dateTime ? event.start.dateTime : event.start.date;
   var dayToAdd = 0;
-  if (!start) {
+  if (event.summary == 'Welcome to Mixpanel!') {
     start = new Date(when).setHours(0,0,0,0);
-  } else {
+  } else if (start) {
     dayToAdd = determineDifference('day', start, when);
-  }
-  var dayOfWeek = new Date(when).getDay();
-  if (dayToAdd < weekLimit) {
-    calendar[dayToAdd].push({
-      "title": event.summary,
-      "time": when,
-      "link": trainings[training],
-      "location": event.location
-    });
+    var dayOfWeek = new Date(when).getDay();
+    if (dayToAdd < weekLimit) {
+      calendar[dayToAdd].push({
+        "title": event.summary,
+        "time": when,
+        "link": trainings[training],
+        "location": event.location
+      });
+    }
   }
 }
 
