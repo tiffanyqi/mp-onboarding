@@ -104,7 +104,7 @@ function listUpcomingEvents() {
     'timeMin': (new Date(2013)).toISOString(),
     'showDeleted': false,
     'singleEvents': true,
-    'maxResults': 1000,
+    'maxResults': 2000,
     'orderBy': 'startTime'
   });
   request.execute(function(resp) {
