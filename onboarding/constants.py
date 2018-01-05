@@ -3,6 +3,7 @@ from collections import OrderedDict
 TRAINING_VIEWS = OrderedDict([
     ('A/B Testing', 'onboarding/training/ab-testing.html'),
     ('API Endpoints', 'onboarding/training/api-endpoints.html'),
+    ('Bad News Bears', 'onboarding/training/no-info-training.html'),
     ('Client vs. Server-side Implementations', 'onboarding/training/client-server.html'),
     ('Debugging Techniques', 'onboarding/training/debugging.html'),
     ('Funnels 101', 'onboarding/training/funnels101.html'),
