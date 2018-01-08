@@ -2,7 +2,6 @@
 var CLIENT_ID = '826991837183-hct4av8fkatbc8v1dvfpneq0ej3d9qj7.apps.googleusercontent.com';
 var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly", "https://www.googleapis.com/auth/plus.login", "https://www.googleapis.com/auth/plus.profile.emails.read"];
 var trainings = textToMap(readTextFile('/static/onboarding/csv/training.csv'));
-console.log(trainings);
 // various dates
 var now = new Date(); // today's date
 var start; // start date
