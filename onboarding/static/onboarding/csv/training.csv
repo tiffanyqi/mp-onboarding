@@ -8,10 +8,10 @@ Identity Management 101, training/identity-management101.html
 People Overview, training/people-overview.html
 People VS Engagement, training/people-vs-engagement.html
 Funnels 101, training/funnels101.html
-Notifications 101, training/notifications101.html
+Messages 101, training/notifications101.html
 Retention, training/retention101.html
 Super Properties, training/super-properties.html
-Segmentation Deep Dive, training/segmentation-deep-dive.html
+Segmentation, training/segmentation-deep-dive.html
 API Endpoints, training/api-endpoints.html
 Lesser Used Reports, training/lesser-reports-deep-dive.html
 People VS Engagement Deep Dive, training/people-deep-dive.html
@@ -19,7 +19,7 @@ Identity Management Deep Dive, training/identity-management-deep-dive.html
 Funnels Deep Dive, training/funnels-deep-dive.html
 Client, training/client-server.html
 Mobile Attribution, training/mobile-attribution.html
-Notifications Deep Dive, training/notifications-deep-dive.html
+Messages Deep Dive, training/notifications-deep-dive.html
 Debugging Techniques, training/debugging.html
 A/B, training/ab-testing.html
 Service Cloud, training/service-cloud.html
